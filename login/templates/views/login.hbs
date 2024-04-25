@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+          
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="first-section">
+            <div class="logo">
+                <img src="/images/logo1.png">
+            </div>
+            <div class="head">
+                <h1>Hi there!</h1>
+                <h3>Welcome to BrainByte Quiz</h3>
+            </div>
+            <div class="google">
+                <img style="height: 22px; width: 22px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" />
+                <a class="goog" href="#">Log in with Google</a>
+            </div>
+            <div class="or">
+                <hr class="hr1">
+                <p>or</p>
+                <hr class="hr2">
+            </div>
+            <form action="/login" method="POST">
+            <div class="form">
+                <input type="text" name="email" id="email" placeholder="Your email">
+                <input type="password" name="password" id="password" placeholder="Password">
+                <div class="forget">
+                    <a href="#"><p>Forgot password?</p></a>
+                </div>
+                <div class="btn">
+                    <input type="submit" name="login" id="login" value="Log In">
+                </div>
+                <div class="last">
+                    <p>Don't have an account? <a href="/register">Sign up</a></p>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

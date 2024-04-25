@@ -1,0 +1,355 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #dbdbdb;
+  }
+
+
+  /* section 1 */
+
+/* Navigation bar styles */
+nav {
+background: #17a8bf;
+background: -webkit-radial-gradient(circle, #17a8bf 0%, #004240 100%);
+background: radial-gradient(circle, #17a8bf 0%, #004240 100%);
+overflow: hidden;
+height: 60px;
+display: flex;
+align-items: center;
+gap: 50px;
+margin-top: 0px;
+}
+
+nav a {
+float: left;
+display: block;
+color: #f2f2f2;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+nav a:hover{
+    color: black;
+}
+
+.logo1 img{
+    height: 65px;
+    width: 230px;
+    margin-left: 20px;
+}
+
+.login{
+    display: flex;
+    gap: 50px;
+  }
+
+  .ab{
+    height: 18px;
+    width: 40px;
+    /* background-color: rgb(159, 162, 163); */
+    border-radius: 10px;
+  }
+  .abc{
+    height: 18px;
+    width: 48px;
+    /* background-color: rgb(119, 151, 169); */
+    border-radius: 10px;
+  }
+
+  .hov:hover {
+    color: black;
+  }
+
+  
+  /* section 2 */
+
+  .search{
+    display: flex;
+    gap: 10px;
+    margin: 20px 0px 0px 230px;
+  }
+
+  .textbox input{
+    height: 35px;
+    width: 850px;
+    border: 2.5px solid rgb(4, 84, 92);
+    border-radius: 10px;
+    font-size: 18px;
+  }
+  
+  .searchbox button{
+    height: 40px;
+    width: 130px;
+    border-radius: 10px;
+    border: none;
+    font-size: 15px;
+    color: white;
+    background-color: #058681;
+    cursor: pointer;
+  }
+
+  .searchbox button:hover{
+    background-color: #015c59;
+  }
+
+
+  /* section 3*/
+
+  .third{
+    height: 500px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .third hr{
+    width: 1150px;
+  }
+  .third h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 30px;
+    color: rgb(6, 90, 98);
+    width: 1000px;
+    /* background-color: #3b3b3b; */
+
+  }
+
+  .third .h11{
+    margin-top: 50px;
+    margin-left: 220px;
+  }
+
+  .third .p1{
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    /* background-color: #0dcaf0; */
+    width: 700px;
+    margin: 45px 0px 0px 100px;
+    color: rgb(4, 107, 135);
+    margin-top: 0px;
+    margin-left: 380px;
+  }
+
+
+/* section 4 */
+
+.main-container{
+    display: flex;
+    gap: 50px;
+    margin-top: -40px;
+    margin-left: 50px;
+}
+
+.side-container{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    margin-top: 70px;
+}
+
+.home2 a{
+    text-decoration: none;
+    color: black;
+}
+.home2 .texts:hover{
+    text-decoration: underline;
+    color: rgb(7, 78, 88);
+  }
+.home2 a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Add vertical space between links */
+}
+.home2 a i {
+    margin-right: 0.5rem;
+}
+
+.reasoning a{
+    text-decoration: none;
+    color: black;
+}
+
+.reasoning .texts:hover{
+    text-decoration: underline;
+    color: rgb(7, 78, 88);
+  }
+
+.reasoning a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Add vertical space between links */
+}
+
+.reasoning a i {
+    margin-right: 0.5rem;
+}
+
+.prog{
+    margin-top: 30px;
+}
+.prog a{
+    text-decoration: none;
+    color: black;
+}
+
+.prog .texts:hover{
+    text-decoration: underline;
+    color: rgb(7, 78, 88);
+  }
+
+.prog a {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem; /* Add vertical space between links */
+}
+
+.prog a i {
+    margin-right: 0.5rem;
+}
+
+
+
+/* quiz section */
+
+.question-container {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.question-container h2 {
+  margin-bottom: 10px;
+}
+
+.question-text {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.options-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.options-container {
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.options-container:hover {
+  background-color: #f0f0f0;
+}
+
+.solution {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+/* section 5 */
+
+.discuss {
+    margin: 100px 230px; /* move the div up and to the left */
+    padding: 25px; /* create space around the content inside the div */
+    background: #088b87;
+    background: -webkit-linear-gradient(275deg, #088b87 0%, #c6f2f8 100%);
+    background: linear-gradient(275deg, #088b87 0%, #c6f2f8 100%);
+    border-radius: 20px;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.load input{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #004240;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+/* section 6 */
+
+footer{
+    padding-block: 80px;
+    background: #17a8bf;
+    background: -webkit-radial-gradient(circle, #17a8bf 0%, #004240 100%);
+    background: radial-gradient(circle, #17a8bf 0%, #004240 100%);
+}
+
+.company-logo img{
+    height: 100px;
+    width: 300px;
+}
+.link-column{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.link-column a{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-container{
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+/* subfooter section */
+
+.subfooter{
+    background-color: #57dae3;
+    padding: 20px;
+}
+
+.subfooter-container a{
+    text-decoration: none;
+}
+
+.subfooter-container{
+    justify-content: center;
+    gap: 30px;
+}
+
+.container3{
+    /* This sets the maximum width of the container to 1180 pixels.  */
+    max-width: 1180px;
+    /* This centers the container horizontally within its containing element by setting the left and right margins to auto. */
+    margin-inline: auto;
+    /* This sets the inline (horizontal) padding of the container.  */
+    padding-inline: var(--padding-inline-section);
+}
+
+/* flex for eveyone whhich mentions flex class  */
+.flex{ 
+    display: flex;
+    align-items: center;
+}

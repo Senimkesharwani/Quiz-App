@@ -1,0 +1,60 @@
+/* Navigation bar styles */
+nav {
+  background: linear-gradient(135deg, #1e8ab9 0%, #8253b0 100%);
+  overflow: hidden;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin-top: 0px;
+  }
+  
+  nav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  }
+  
+  nav a:hover{
+      color: black;
+  }
+  
+  .logo1 img{
+      height: 65px;
+      width: 230px;
+      margin-left: 20px;
+  }
+  
+  .login{
+      display: flex;
+      gap: 50px;
+    }
+  
+    .ab{
+      height: 18px;
+      width: 40px;
+      /* background-color: rgb(159, 162, 163); */
+      border-radius: 10px;
+    }
+    .abc{
+      height: 18px;
+      width: 48px;
+      /* background-color: rgb(119, 151, 169); */
+      border-radius: 10px;
+    }
+  
+    .hov:hover {
+      color: black;
+    }
+
+  .main1{
+    margin-right: 80px;
+    display: flex;
+    gap: 15px;
+  }
+
+
+
