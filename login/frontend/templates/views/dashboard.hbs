@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Dashboard - BrainByte</title>
+    <meta name="description" content="Your personalized quiz dashboard. Choose from Computer Science subjects and test your knowledge.">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="/css/globals.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Animated Background Orbs -->
+    <div class="bg-animation">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    {{> appNavbar }}
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+
+        <!-- Hero Section -->
+        <section class="dashboard-hero">
+            <p class="hero-greeting">👋 Welcome back</p>
+            <h1 class="hero-title">Choose a Subject & Start Your Quiz</h1>
+            <p class="hero-subtitle">Test your Computer Science knowledge across multiple subjects. Track your scores and improve with every attempt.</p>
+        </section>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-value">10</span>
+                <span class="stat-label">Subjects</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">50+</span>
+                <span class="stat-label">Questions</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value" id="total-attempts">{{totalAttempts}}</span>
+                <span class="stat-label">Your Attempts</span>
+            </div>
+        </div>
+
+        <!-- Analytics Section -->
+        <section class="analytics-section">
+            <div class="section-header">
+                <h2 class="section-title-text">📈 Analytics & Insights</h2>
+                <span class="section-badge">Live Updates</span>
+            </div>
+
+            <div class="analytics-grid">
+                <!-- Main Chart Card -->
+                <div class="analytics-card chart-card">
+                    <div class="card-header">
+                        <h3>Score History</h3>
+                        <p>Last 10 attempts percentage</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="scoreChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Stats Cards Column -->
+                <div class="stats-column">
+                    <div class="analytics-card mini-card" data-type="best">
+                        <div class="mini-icon">⭐</div>
+                        <div class="mini-info">
+                            <span class="mini-label">Best Score</span>
+                            <span class="mini-value">{{bestScore}}%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="analytics-card mini-card" data-type="accuracy">
+                        <div class="mini-icon">🎯</div>
+                        <div class="mini-info">
+                            <span class="mini-label">Accuracy Rate</span>
+                            <span class="mini-value">{{accuracyRate}}%</span>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card mini-card" data-type="weak">
+                        <div class="mini-icon">📉</div>
+                        <div class="mini-info">
+                            <span class="mini-label">Weak Topic</span>
+                            <span class="mini-value" style="font-size: 0.9rem;">{{weakTopic}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subjects Grid -->
+        <section>
+            <div class="section-header">
+                <h2 class="section-title-text">📚 Quiz Subjects</h2>
+                <span class="section-badge">10 Available</span>
+            </div>
+            
+            <div class="subjects-grid">
+                <!-- ... subjects grid content ... -->
+                <a href="/osmcq" class="subject-card" data-subject="os">
+                    <div class="card-icon-wrapper">🖥️</div>
+                    <div class="card-content">
+                        <h3>Operating System</h3>
+                        <p>Process scheduling, memory management, file systems & more</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <!-- ... other cards ... -->
+                <a href="/software" class="subject-card" data-subject="se">
+                    <div class="card-icon-wrapper">⚙️</div>
+                    <div class="card-content">
+                        <h3>Software Engineering</h3>
+                        <p>SDLC, testing methodologies, software design patterns</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/cn" class="subject-card" data-subject="cn">
+                    <div class="card-icon-wrapper">🌐</div>
+                    <div class="card-content">
+                        <h3>Computer Networks</h3>
+                        <p>OSI model, TCP/IP, routing protocols & network security</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/dsa" class="subject-card" data-subject="dsa">
+                    <div class="card-icon-wrapper">🧮</div>
+                    <div class="card-content">
+                        <h3>Data Structures & Algorithms</h3>
+                        <p>Arrays, linked lists, trees, graphs & sorting algorithms</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/dbms" class="subject-card" data-subject="dbms">
+                    <div class="card-icon-wrapper">🗄️</div>
+                    <div class="card-content">
+                        <h3>Database Management</h3>
+                        <p>SQL, normalization, relational algebra & transactions</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/AI" class="subject-card" data-subject="ai">
+                    <div class="card-icon-wrapper">🤖</div>
+                    <div class="card-content">
+                        <h3>Artificial Intelligence</h3>
+                        <p>Machine learning, neural networks, expert systems & NLP</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/ca" class="subject-card" data-subject="ca">
+                    <div class="card-icon-wrapper">🔧</div>
+                    <div class="card-content">
+                        <h3>Computer Architecture</h3>
+                        <p>CPU design, pipelining, cache memory & instruction sets</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/c" class="subject-card" data-subject="c">
+                    <div class="card-icon-wrapper">💻</div>
+                    <div class="card-content">
+                        <h3>C Programming</h3>
+                        <p>Pointers, structures, file handling & memory management</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+                <a href="/cpp" class="subject-card" data-subject="cpp">
+                    <div class="card-icon-wrapper">🔷</div>
+                    <div class="card-content">
+                        <h3>C++ / OOP</h3>
+                        <p>Classes, inheritance, polymorphism & STL containers</p>
+                    </div>
+                    <div class="card-meta">
+                        <span class="questions-count">5 Questions</span>
+                        <div class="arrow">→</div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Recent Scores -->
+        <section class="recent-scores">
+            <div class="section-header">
+                <h2 class="section-title-text">📊 Recent Scores</h2>
+            </div>
+            <!-- ... existing table logic ... -->
+            <div class="scores-table-wrapper">
+                {{#if quizResults.length}}
+                <table class="scores-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Score</th>
+                            <th>Percentage</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each quizResults}}
+                        <tr>
+                            <td>{{this.subject}}</td>
+                            <td>{{this.score}} / {{this.totalQuestions}}</td>
+                            <td>
+                                <span class="score-badge {{#if (gte this.percentage 80)}}excellent{{else}}{{#if (gte this.percentage 60)}}good{{else}}{{#if (gte this.percentage 40)}}average{{else}}poor{{/if}}{{/if}}{{/if}}">
+                                    {{this.percentage}}%
+                                </span>
+                            </td>
+                            <td>{{this.dateString}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                {{else}}
+                <div class="no-scores">
+                    <div class="empty-icon">📝</div>
+                    <p>No quiz attempts yet. Pick a subject above and start your first quiz!</p>
+                </div>
+                {{/if}}
+            </div>
+        </section>
+    </main>
+
+    <footer class="dashboard-footer">
+        <p>&copy; 2024 BrainByte Quiz. All rights reserved.</p>
+    </footer>
+    <script src="/js/ui-utils.js"></script>
+    <div id="global-spinner"><div class="spinner-inner"></div></div>
+
+    <!-- Chart.js and Analytics Script -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chartData = JSON.parse('{{{chartDataJSON}}}');
+            
+            if (chartData.length === 0) {
+                document.querySelector('.chart-container').innerHTML = '<div class="no-data-msg">Complete a quiz to see your progress chart!</div>';
+                return;
+            }
+
+            const ctx = document.getElementById('scoreChart').getContext('2d');
+            
+            // Create Gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+            gradient.addColorStop(0, 'rgba(99, 102, 241, 0.4)');
+            gradient.addColorStop(1, 'rgba(99, 102, 241, 0.0)');
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartData.map(d => d.label),
+                    datasets: [{
+                        label: 'Score Percentage',
+                        data: chartData.map(d => d.value),
+                        borderColor: '#6366f1',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#6366f1',
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: true,
+                        backgroundColor: gradient,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            grid: { color: 'rgba(255, 255, 255, 0.05)', borderColor: 'transparent' },
+                            ticks: { color: '#64748b', font: { size: 10 } }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { color: '#64748b', font: { size: 10 } }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

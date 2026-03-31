@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BrainByte Quiz</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/globals.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <div class="overlay"></div>
+            <div class="auth-left-content">
+                <h2>Welcome Back!</h2>
+                <p>Stay connected with BrainByte Quiz and continue your learning journey.</p>
+            </div>
+        </div>
+        <div class="auth-right">
+            <div class="auth-header">
+                <a href="/" class="back-home">← Back to Home</a>
+                <img src="/images/logo1.png" alt="BrainByte Quiz Logo" class="logo">
+                <h1>Hi there!</h1>
+                <p>Welcome to BrainByte Quiz</p>
+            </div>
+            
+            <a class="google-btn" href="/auth/google">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Google">
+                Log in with Google
+            </a>
+            
+            <div class="auth-divider">
+                <span>or</span>
+            </div>
+            
+            {{#if error}}
+            <p style="color: #d93025; text-align: center; font-size: 14px; margin-bottom: 15px; font-weight: 500;">{{error}}</p>
+            {{/if}}
+            
+            <form class="auth-form" action="/login" method="POST">
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" id="password" placeholder="Password" required>
+                </div>
+                <a href="#" class="forgot-pwd">Forgot password?</a>
+                
+                <button type="submit" name="login" id="login" class="submit-btn">Log In</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="/register">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/ui-utils.js"></script>
+    <div id="global-spinner"><div class="spinner-inner"></div></div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<header class="header" data-header>
+  <div class="container">
+
+    <a href="/" class="logo">
+      <img src="images/logo.svg" width="162" height="50" alt="BrainByte logo">
+    </a>
+
+    <nav class="navbar" data-navbar>
+
+      <div class="wrapper">
+        <a href="/" class="logo">
+          <img src="/images/logo.svg" width="162" height="50" alt="BrainByte logo">
+        </a>
+
+        <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+
+      <ul class="navbar-list">
+        <li class="navbar-item">
+          <a href="#home" class="navbar-link" data-nav-link>Home</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#about" class="navbar-link" data-nav-link>About</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#courses" class="navbar-link" data-nav-link>Courses</a>
+        </li>
+        <li class="navbar-item">
+          <a href="#footer" class="navbar-link" data-nav-link>Contact</a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <div class="header-actions">
+      {{#if userEmail}}
+        <div class="user-profile">
+          <a href="/dashboard" class="btn has-before">Dashboard</a>
+          <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+      {{else}}
+        <div class="auth-btns">
+          <a href="/login" class="btn-login hov">Login</a>
+          <a href="/register" class="btn signup-btn has-before">Signup</a>
+        </div>
+      {{/if}}
+      
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+    </div>
+
+    <div class="overlay" data-nav-toggler data-overlay></div>
+
+  </div>
+</header>

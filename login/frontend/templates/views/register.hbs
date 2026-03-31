@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - BrainByte Quiz</title>
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="css/globals.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <div class="overlay"></div>
+            <div class="auth-left-content">
+                <h2>Join Us!</h2>
+                <p>Create an account to start your journey with BrainByte Quiz.</p>
+            </div>
+        </div>
+        <div class="auth-right">
+            <div class="auth-header">
+                <a href="/" class="back-home">← Back to Home</a>
+                <img src="/images/logo1.png" alt="BrainByte Quiz Logo" class="logo">
+                <h1>Create Account</h1>
+                <p>Sign up to get started</p>
+            </div>
+            
+            <a class="google-btn" href="/auth/google">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg" alt="Google">
+                Sign up with Google
+            </a>
+            
+            <div class="auth-divider">
+                <span>or</span>
+            </div>
+            
+            {{#if error}}
+            <p style="color: #d93025; text-align: center; font-size: 14px; margin-bottom: 15px; font-weight: 500;">{{error}}</p>
+            {{/if}}
+            
+            <form class="auth-form" action="/register" method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="confirmpassword" placeholder="Confirm Password" required>
+                </div>
+                
+                <label class="checkbox-group">
+                    <input type="checkbox" required>
+                    <span>I Agree To The Terms & Conditions</span>
+                </label>
+                
+                <button type="submit" class="submit-btn">SIGN UP</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an Account? <a href="/login">Login Now!</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="/js/ui-utils.js"></script>
+    <div id="global-spinner"><div class="spinner-inner"></div></div>
+</body>
+</html>

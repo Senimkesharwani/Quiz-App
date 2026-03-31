@@ -1,0 +1,71 @@
+<!-- Dashboard/Quiz Navbar -->
+<nav class="dashboard-nav">
+  <div class="nav-container">
+    <div class="nav-left">
+      <a href="/dashboard" class="nav-brand">
+        <div class="brand-icon">B</div>
+        <span class="brand-text">BrainByte</span>
+      </a>
+      
+      <!-- Desktop Navigation -->
+      <ul class="nav-links desktop-only">
+        <li><a href="/" class="nav-link">Home</a></li>
+        <li><a href="/dashboard" class="nav-link {{#if isDashboard}}active{{/if}}">Dashboard</a></li>
+        <li><a href="/allsub" class="nav-link {{#if isAllSub}}active{{/if}}">All Subjects</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-user desktop-only">
+        <div class="user-info">
+          <div class="user-avatar">{{firstLetter}}</div>
+          <span class="user-email">{{userEmail}}</span>
+        </div>
+        <a href="/logout" class="nav-btn logout-btn">
+          <span>🚪</span>
+          <span>Logout</span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Toggle Menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <div class="mobile-user-info">
+        <div class="user-avatar">{{firstLetter}}</div>
+        <span class="user-email-mobile">{{userEmail}}</span>
+      </div>
+      <ul class="mobile-nav-list">
+        <li><a href="/" class="mobile-link">🏠 Home</a></li>
+        <li><a href="/dashboard" class="mobile-link">📊 Dashboard</a></li>
+        <li><a href="/allsub" class="mobile-link">📚 All Subjects</a></li>
+        <li class="separator"></li>
+        <li><a href="/logout" class="mobile-link logout-link">🚪 Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        mobileBtn.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+    }
+  });
+</script>
