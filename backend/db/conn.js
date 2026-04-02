@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost:27017/Registration").then(() =>{
-    console.log(`connection successful`);
-}).catch((err) =>{
-    console.log(`no connection: ${err.message}`);
-})
+
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log(`Connection Successful to MongoDB Atlas`);
+}).catch((err) => {
+    console.log(`No connection: ${err.message}`);
+});

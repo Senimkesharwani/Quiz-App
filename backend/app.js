@@ -15,8 +15,8 @@ const port = process.env.PORT || 5005;
 
 // paths
 const static_path = path.join(__dirname, "../frontend/public");
-const template_path = path.join(__dirname, "../frontend/templates/views");
-const partials_path = path.join(__dirname, "../frontend/templates/partials");
+const template_path = path.join(__dirname, "../frontend/views");
+const partials_path = path.join(__dirname, "../frontend/partials");
 
 // view engine setup
 app.set("view engine", "hbs");
