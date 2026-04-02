@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express  = require('express');
 const app = express();
+app.set('trust proxy', 1);
 const path = require('path');
 const hbs = require('hbs');
 const session = require('express-session');
@@ -48,17 +49,28 @@ const isAuthenticated = (req, res, next) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID || 'dummy',
     clientSecret: process.env.GOOGLE_CLIENT_SECRET || 'dummy',
-    callbackURL: "/auth/google/callback"
+    callbackURL: process.env.CALLBACK_URL || "http://localhost:5005/auth/google/callback"
   },
   async (accessToken, refreshToken, profile, cb) => {
     try {
+        console.log("Google Strategy Callback triggered");
+        console.log("Profile ID:", profile.id);
+        console.log("Profile Email:", profile.emails?.[0]?.value);
+
+        if (!profile.emails || profile.emails.length === 0) {
+            return cb(new Error("No email associated with this Google account."), null);
+        }
+
         let user = await Register.findOne({ googleId: profile.id });
         if (!user) {
+            console.log("User not found by googleId, checking by email...");
             user = await Register.findOne({ email: profile.emails[0].value });
             if (user) {
+                console.log("User found by email, linking googleId...");
                 user.googleId = profile.id;
                 await user.save();
             } else {
+                console.log("Creating new Google user...");
                 user = new Register({
                     username: profile.displayName,
                     email: profile.emails[0].value,
@@ -67,8 +79,10 @@ passport.use(new GoogleStrategy({
                 await user.save();
             }
         }
+        console.log("Google Authentication Successful for:", user.email);
         return cb(null, user);
     } catch (err) {
+        console.error("Error in Google Strategy:", err);
         return cb(err, null);
     }
   }
@@ -83,6 +97,7 @@ passport.deserializeUser((obj, cb) => cb(null, obj));
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }),
   (req, res) => {
+    console.log("Google callback reached, setting session for:", req.user.email);
     req.session.userEmail = req.user.email;
     res.redirect('/dashboard');
   }
